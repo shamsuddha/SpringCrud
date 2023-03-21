@@ -1,0 +1,32 @@
+spring:
+  jpa:
+    # database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        #dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+      ddl-auto: update
+    open-in-view: false
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/wordah
+      name: wordah
+      username: root
+      password:
+#      driver-class-name: org.postgresql.Driver
+#      url: jdbc:postgresql://localhost:3306/db_name
+#      name: db_name
+#      username: user
+#      password: password
+
+      hikari:
+        connection-timeout: 60000
+        minimum-idle: 15
+        maximum-pool-size: 30
+        idle-timeout: 10000
